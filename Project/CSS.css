@@ -1,0 +1,23 @@
+body{margin:0px;background-color:fff0f5;}
+h1{font-size:40px;background-color:#9FAFDF;text-decoration:underline;margin:0px;padding:50px;text-shadow:2px 4px 4px black;}
+h2{font-size:30px;}
+form{border:2px solid black;height: 50%;width:50%;margin-left:20%;margin-right:20%;margin-top:5%;padding:20px;background-color:d3d3d3;}
+input{height:30px;width:auto;padding:10px;margin:5px;}
+legend{margin-top:-65px;background:black;width:auto;color:white;}
+button{height:20%;width:30%;margin:4%;outline:none;border:none;border-radius:35px;}
+div{margin-top:25%;padding:3px;font-size:25px;}
+#id1{font-size:15px;padding:5px;}
+#id5{font-size:15px;padding:5px;}
+#id1:hover{background-color:#7FFF00;}
+#id5:hover{background-color:#ff3939;}
+button:hover{background-color:cyan;font-size:20px;}
+button:active{transition:.5s;transform:scale(1.1);}
+#id1:active{transition:.5s;transform:scale(1.3);}
+input.id3::-webkit-outer-spin-button,
+input.id3::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin:0;
+}
+th{padding: 20px;margin: 15px;}
+select{height:30px;width:auto;padding:5px;margin:5px;}
+table{text-align:center;}

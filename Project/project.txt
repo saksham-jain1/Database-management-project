@@ -1,0 +1,70 @@
+create database project;
+use project;
+
+
+Create table login_details(username varchar(20) primary key,password varchar(20) not null);
+insert into login_details values('saksham','root');
+insert into login_details values('rohit','root');
+insert into login_details values('sagar','root');
+
+
+
+
+create table medicine(med_id int(6) primary key auto_increment,name varchar(30) not null,company varchar(30) not null,price float(6,2) not null,quantity int(6) not null default'0',for_age_greaterthen int(3) default'7');
+insert into medicine values(1,'Arnica-Q','SBL',100,20,0);
+insert into medicine values(2,'Borax-Q','SBL',100,20,0);
+insert into medicine values(3,'Chelidonium-Q','SBL',100,20,0);
+insert into medicine values(4,'Damiana-Q','SBL',100,20,0);
+insert into medicine values(5,'Thuja-Q','SBL',100,20,0);
+insert into medicine values(6,'Vanadium-Q','SBL',100,20,0);
+insert into medicine values(7,'Beladona-Q','SBL',100,20,0);
+insert into medicine values(8,'Avena-Q','SBL',100,20,0);
+insert into medicine values(9,'Arnica-Q','Germany',100,20,0);
+insert into medicine values(10,'Borax-Q','Germany',100,20,0);
+insert into medicine values(11,'Chelidonium-Q','Germany',100,20,0);
+insert into medicine values(12,'Damiana-Q','Germany',100,20,0);
+insert into medicine values(13,'Thuja-Q','Germany',100,20,0);
+insert into medicine values(14,'Vanadium-Q','Germany',100,20,0);
+insert into medicine values(15,'Beladona-Q','Germany',100,20,0);
+insert into medicine values(16,'Avena-Q','Germany',100,20,0);
+
+
+create table customer(cust_no int(6) primary key auto_increment,name varchar(30) not null,age int(3),Phone_no bigint);
+
+
+
+create table  Med_cust(cust_no int(6),med_id int(6),quantity int(6),foreign key(med_id) references medicine(med_id),foreign key(cust_no) references customer(cust_no) on delete cascade);
+
+
+
+
+create table Wholesalers(seller_id int(4) primary key auto_increment,name varchar(30) not null,email_id varchar(30),phone_no bigint);
+insert into wholesalers(name,email_id,phone_no) values('saksham','sndalk',98631);
+insert into wholesalers(name,email_id,phone_no) values('saksham1','sndalk',98631);
+insert into wholesalers(name,email_id,phone_no) values('saksham2','sndalk',98631);
+insert into wholesalers(name,email_id,phone_no) values('saksham3','sndalk',98631);
+
+
+
+
+create table whols_med(seller_id int(4),med_id int(6),quantity int(6),foreign key(med_id) references medicine(med_id),foreign key(seller_id) references Wholesalers(seller_id));
+
+
+
+
+
+
+create table account(Bill_no int(6) primary key auto_increment,amount float(8,2),status varchar(30),date date);
+
+
+
+
+
+
+create table whols_acc(seller_id int(4),bill_no int(6),foreign key(seller_id) references Wholesalers(seller_id),foreign key(bill_no) references account(bill_no));
+
+
+
+
+
+create table cust_acc(cust_no int(6),bill_no int(6),foreign key(cust_no) references customer(cust_no),foreign key(bill_no) references account(bill_no));
